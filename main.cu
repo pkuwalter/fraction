@@ -145,6 +145,7 @@ void test(const char* filename, const int start_index, const int max_iters, cons
     releaseData(num_vertices, degree, adj_list);
 }
 
+/*******************************************************
 int main(int argc, char ** argv)
 {
     if (argc < 3)
@@ -168,5 +169,37 @@ int main(int argc, char ** argv)
             fraction = atof(argv[i+1]);
     }
     test(filename.c_str(), start_index, max_iters, fraction);
+    return 0;
+}
+**********************************************************/
+
+int main(int argc, char ** argv)
+{
+    if (argc < 2)
+    {
+      cout << "Usage: " << argv[0] << " --file filename [--start_index number] [--max_iters max_ters]" << endl;
+        return 0;
+    }
+    string filename = "../data/web-Stanford.txt";
+    int start_index = 0;
+    int max_iters = 0;
+    float fraction = 0;
+    for (int i = 1; i < argc; ++i)
+    {
+        if (strcmp(argv[i], "--file") == 0)
+            filename = argv[i+1];
+        if (strcmp(argv[i], "--start_index") == 0)
+            start_index = atoi(argv[i+1]);
+        if (strcmp(argv[i], "--max_iters") == 0)
+            max_iters = atoi(argv[i+1]);        
+    }
+    /************************************************
+    for (fraction = 0; fraction < 1; fraction+=0.05)
+    {
+      std::cout << "fraction: " << fraction <<endl;
+      test(filename.c_str(), start_index, max_iters, fraction);
+    }
+    ************************************************/
+    test(filename.c_str(), start_index, max_iters, 0.05);
     return 0;
 }
