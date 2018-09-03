@@ -125,7 +125,7 @@ void test(const char* filename, const int start_index, const int max_iters, cons
 
    // cout << "Running mix coloring algorithm (Run " << max_iters << "iters on GPU)...\n";
 
-    std::cout << "frac" << "\t" << "Iter" << "\t" << "Trav" << "\t" << "isColored" << "\t"<< "Total" << "\t" << "isRight" <<endl;
+    //std::cout << "frac" << "\t" << "Iter" << "\t" << "Trav" << "\t" << "isColored" << "\t"<< "Total" << "\t" << "isRight" <<endl;
     std::cout << fraction << "\t";
     gettimeofday(&start_time, NULL);
     mixColor(num_vertices, num_edges, srcs_of_edges, dsts_of_edges, row_ptr, col, col_ptr, row, max_iters, fraction, colors);
@@ -204,6 +204,8 @@ int main(int argc, char ** argv)
         if (strcmp(argv[i], "--max_iters") == 0)
             max_iters = atoi(argv[i+1]);        
     }
+
+    std::cout << "frac" << "\t" << "Iter" << "\t" << "Trav" << "\t" << "isColored" << "\t"<< "Total" << "\t" << "isRight" <<endl;
     
     for (fraction = 0; fraction < 1; fraction+=0.05)
     {      
