@@ -204,14 +204,12 @@ int main(int argc, char ** argv)
         if (strcmp(argv[i], "--max_iters") == 0)
             max_iters = atoi(argv[i+1]);        
     }
-    /************************************************
-    for (fraction = 0; fraction < 1; fraction+=0.05)
-    {
-      std::cout << "fraction: " << fraction <<endl;
-      test(filename.c_str(), start_index, max_iters, fraction);
-    }
-    ************************************************/
     
-    test(filename.c_str(), start_index, max_iters, 0.05);
+    for (fraction = 0; fraction < 1; fraction+=0.05)
+    {      
+      test(filename.c_str(), start_index, max_iters, fraction);
+    }   
+    
+    //test(filename.c_str(), start_index, max_iters, 0.05);
     return 0;
 }
