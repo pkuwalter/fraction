@@ -708,7 +708,7 @@ void mixColor(const int n_vertices,
     cudaMalloc(&dev_undone, sizeof(int) * n_vertices);
     cudaMalloc(&dev_continue_flag, sizeof(int));
     gettimeofday(&end_time, NULL);
-    std::cout << "cuda malloc time: " << elapsed(start_time, end_time) << "ms" << std::endl;
+    //std::cout << "cuda malloc time: " << elapsed(start_time, end_time) << "ms" << std::endl;
 
     gettimeofday(&start_time, NULL);
     cudaMemcpy(dev_srcs, srcs, sizeof(int) * n_edges, cudaMemcpyHostToDevice);
@@ -716,7 +716,7 @@ void mixColor(const int n_vertices,
     cudaMemcpy(dev_colors, colors, sizeof(int) * n_vertices, cudaMemcpyHostToDevice);
     cudaMemcpy(dev_undone, undone, sizeof(int) * n_vertices, cudaMemcpyHostToDevice);
     gettimeofday(&end_time, NULL);
-    std::cout << "cuda memcpy time: " << elapsed(start_time, end_time) << "ms" << std::endl;
+    //std::cout << "cuda memcpy time: " << elapsed(start_time, end_time) << "ms" << std::endl;
 
     //gettimeofday(&start_time, NULL);
     int iter = 0;
