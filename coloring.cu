@@ -771,9 +771,13 @@ void mixColor(const int n_vertices,
         greedyColor2(n_vertices, row_ptr, col, col_ptr, row, 1000, undone, colors) ;
     }
     gettimeofday(&end_time, NULL);
+    float iter_time = 0.0;
+    float trav_time = 0.0;
+    trav_time = elapsed(start_time, end_time);
+    iter_time = kernel_time + elapsed(start_time, end_time);
     //std::cout << "Greedy color time for the rest vertices: " << elapsed(start_time, end_time) << "ms" << std::endl;
     //std::cout << "Time(without malloc & memcpy): " << kernel_time + elapsed(start_time, end_time) << "ms" << std::endl;
-    std::cout << kernel_time + elapsed(start_time, end_time) << "\t" << elapsed(start_time, end_time) << std::endl;
+    std::cout << iter_time << "\t" << trav_time << std::endl;
 
 
 
