@@ -94,13 +94,15 @@ void test(const char* filename, const int start_index, const int max_iters, cons
     struct timeval start_time, end_time;
 
     // print info
+    /**********************
     cout << "File: " << filename << ", " << "num_vertices=" << num_vertices
          << ", num_edges=" << num_edges << ", ";
+    ******************/
 
     // print num of connected components
     int * is_target = (int *)malloc(sizeof(int) * num_vertices);
     thrust::fill(is_target, is_target + num_vertices, 1); // init colors to -1
-    cout << "num_cc = " << getNumCC(num_vertices, row_ptr, col, col_ptr, row, is_target) << endl;
+    //cout << "num_cc = " << getNumCC(num_vertices, row_ptr, col, col_ptr, row, is_target) << endl;
     free(is_target);
 
     /****************
