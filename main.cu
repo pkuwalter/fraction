@@ -134,7 +134,7 @@ void test(const char* filename, const int start_index, const int max_iters, cons
     gettimeofday(&end_time, NULL);
 
     std::cout << elapsed(start_time, end_time) 
-              << "\t" << (isRight(num_vertices, row_ptr, col, col_ptr, row, colors) ? "right" : "wrong") << "\t" << num_colors << endl;
+              << "\t" << (isRight(num_vertices, row_ptr, col, col_ptr, row, colors) ? "right" : "wrong") << "\t" << getNumColors(num_vertices, colors) << endl;
 
 /****************
     cout << "total time: " << elapsed(start_time, end_time) << "ms" << endl
