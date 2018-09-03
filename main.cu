@@ -121,7 +121,7 @@ void test(const char* filename, const int start_index, const int max_iters, cons
 //         << "Solution: num_colors=" << getNumColors(num_vertices, colors) << ", "
 //         << (isRight(num_vertices, row_ptr, col, col_ptr, row, colors) ? "right solution" : "wrong solution") << endl << endl;
 
-    cout << "Running mix coloring algorithm (Run " << max_iters << "iters on GPU)...\n";
+   // cout << "Running mix coloring algorithm (Run " << max_iters << "iters on GPU)...\n";
     gettimeofday(&start_time, NULL);
     mixColor(num_vertices, num_edges, srcs_of_edges, dsts_of_edges, row_ptr, col, col_ptr, row, max_iters, fraction, colors);
     gettimeofday(&end_time, NULL);

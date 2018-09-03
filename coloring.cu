@@ -747,9 +747,11 @@ void mixColor(const int n_vertices,
         kernel_time += time;
         cudaMemcpy(undone, dev_undone, sizeof(int) * n_vertices, cudaMemcpyDeviceToHost);
         int num_undone = std::count(undone, undone + n_vertices, 1);
+        /************
         std::cout << "Iter: " << iter << " "
                   << "num_undone = " << num_undone << " " 
                   << "time = " << time << "ms" << std::endl;
+        **************/
         iter++;
         if (niters > 0 && iter >= niters) break;
         if (fraction > 0 && (1 - (float)num_undone / n_vertices) >= fraction) break;
@@ -769,8 +771,11 @@ void mixColor(const int n_vertices,
         greedyColor2(n_vertices, row_ptr, col, col_ptr, row, 1000, undone, colors) ;
     }
     gettimeofday(&end_time, NULL);
-    std::cout << "Greedy color time for the rest vertices: " << elapsed(start_time, end_time) << "ms" << std::endl;
-    std::cout << "Time(without malloc & memcpy): " << kernel_time + elapsed(start_time, end_time) << "ms" << std::endl;
+    //std::cout << "Greedy color time for the rest vertices: " << elapsed(start_time, end_time) << "ms" << std::endl;
+    //std::cout << "Time(without malloc & memcpy): " << kernel_time + elapsed(start_time, end_time) << "ms" << std::endl;
+    std::cout << kernel_time + elapsed(start_time, end_time) << "\t" << elapsed(start_time, end_time) << std::endl;
+
+
 
     cudaFree(dev_continue_flag);
     cudaFree(dev_srcs);
