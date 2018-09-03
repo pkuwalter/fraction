@@ -117,7 +117,8 @@ void readData(const char * filename, degree_t ** degree_p, vertex_t *** adj_list
             swap(&src, &dst);
         degree[src]++;
         if (++count % 10000000 == 0)
-            cout << count << endl;
+            cout << "";
+            //cout << count << endl;
     }
     fin.close();
 
@@ -151,8 +152,9 @@ void readData(const char * filename, degree_t ** degree_p, vertex_t *** adj_list
             swap(&src, &dst);
         adj_list[src][counter[src]] = dst;
         counter[src]++;
-        //if (++count % 10000000 == 0)
-        //    cout << count << endl;
+        if (++count % 10000000 == 0)
+           //cout << count << endl;
+            cout << "";
     }
 
     // release useless memory
