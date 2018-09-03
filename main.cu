@@ -101,7 +101,7 @@ void test(const char* filename, const int start_index, const int max_iters, cons
     cout << "num_cc = " << getNumCC(num_vertices, row_ptr, col, col_ptr, row, is_target) << endl;
     free(is_target);
 
-    /********************************************************
+    
     cout << "Running greedy coloring algorithm on CPU...\n";
     gettimeofday(&start_time, NULL);
     greedyColor(num_vertices, num_edges, row_ptr, col, col_ptr, row, colors);
@@ -109,7 +109,7 @@ void test(const char* filename, const int start_index, const int max_iters, cons
     cout << "CPU: Greeddy coloring time: " << elapsed(start_time, end_time) << "ms" << endl
          << "Solution: num_colors=" << getNumColors(num_vertices, colors) << ", "
          << (isRight(num_vertices, row_ptr, col, col_ptr, row, colors) ? "right solution" : "wrong solution") << endl << endl;
-    ************************************************/
+    
     // choose device & initialize cuda
     cudaSetDevice(0);
 
