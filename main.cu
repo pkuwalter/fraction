@@ -134,7 +134,7 @@ void test(const char* filename, const int start_index, const int max_iters, cons
     gettimeofday(&end_time, NULL);
 
     std::cout << elapsed(start_time, end_time) 
-              << "\t" << (isRight(num_vertices, row_ptr, col, col_ptr, row, colors) ? "right" : "wrong") << endl;
+              << "\t" << (isRight(num_vertices, row_ptr, col, col_ptr, row, colors) ? "right" : "wrong") << "\t" << num_colors << endl;
 
 /****************
     cout << "total time: " << elapsed(start_time, end_time) << "ms" << endl
@@ -207,7 +207,7 @@ int main(int argc, char ** argv)
             max_iters = atoi(argv[i+1]);        
     }
 
-    std::cout << "frac" << "\t" << "Iter" << "\t" << "Trav" << "\t" << "isColored" << "\t"<< "Total" << "\t" << "isRight" <<endl;
+    std::cout << "frac" << "\t" << "Iter" << "\t" << "Trav" << "\t" << "isColored" << "\t"<< "Total" << "\t" << "isRight" << "\t"<< "Colors" << endl;
     
     for (fraction = 0; fraction <= 0.9; fraction+=0.05)
     {      
