@@ -32,11 +32,13 @@ bool isRight(int n, int * row_ptr, int * col, int * col_ptr, int * row, int * co
   {
     if (colors[i] == -1)
     {
-      cout << "Not all vertices are colored.\n";
+      //cout << "Not all vertices are colored.\n";
+      cout << "No " << "\t";
       return false;
     }
   }
-  cout << "All vertices are colored.\n";
+  //cout << "All vertices are colored.\n";
+  cout << "yes" << "\t";
 
   for (int i = 0; i < n; ++i)
   {
@@ -123,7 +125,7 @@ void test(const char* filename, const int start_index, const int max_iters, cons
 
    // cout << "Running mix coloring algorithm (Run " << max_iters << "iters on GPU)...\n";
 
-    std::cout << "fraction" << "\t" << "Iter Time" << "\t" << "Trav Time" << "\t" << "Total" << "\t"<< "isRight" <<endl;
+    std::cout << "fraction" << "\t" << "Iter Time" << "\t" << "Trav Time" << "\t" << "Total" << "\t"<< "isColored" << "\t" << "isRight" <<endl;
     std::cout << fraction << "\t";
     gettimeofday(&start_time, NULL);
     mixColor(num_vertices, num_edges, srcs_of_edges, dsts_of_edges, row_ptr, col, col_ptr, row, max_iters, fraction, colors);
