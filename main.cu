@@ -125,14 +125,14 @@ void test(const char* filename, const int start_index, const int max_iters, cons
 
    // cout << "Running mix coloring algorithm (Run " << max_iters << "iters on GPU)...\n";
 
-    std::cout << "fraction" << "\t" << "Iter Time" << "\t" << "Trav Time" << "\t" << "Total" << "\t"<< "isColored" << "\t" << "isRight" <<endl;
+    std::cout << "frac" << "\t" << "Iter" << "\t" << "Trav" << "\t" << "Total" << "\t"<< "isColored" << "\t" << "isRight" <<endl;
     std::cout << fraction << "\t";
     gettimeofday(&start_time, NULL);
     mixColor(num_vertices, num_edges, srcs_of_edges, dsts_of_edges, row_ptr, col, col_ptr, row, max_iters, fraction, colors);
     gettimeofday(&end_time, NULL);
 
     std::cout << elapsed(start_time, end_time) 
-              << "\t" << (isRight(num_vertices, row_ptr, col, col_ptr, row, colors) ? "right solution" : "wrong solution") << endl;
+              << "\t" << (isRight(num_vertices, row_ptr, col, col_ptr, row, colors) ? "right" : "wrong") << endl;
 
 /****************
     cout << "total time: " << elapsed(start_time, end_time) << "ms" << endl
