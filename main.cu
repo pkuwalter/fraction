@@ -122,13 +122,21 @@ void test(const char* filename, const int start_index, const int max_iters, cons
 //         << (isRight(num_vertices, row_ptr, col, col_ptr, row, colors) ? "right solution" : "wrong solution") << endl << endl;
 
    // cout << "Running mix coloring algorithm (Run " << max_iters << "iters on GPU)...\n";
+
+    std::cout << "fraction" << "\t" << "Iter Time" << "\t" << "Trav Time" << "\t" << "Total" << "\t"<< "isRight" <<endl;
+    std::cout << fraction << "\t";
     gettimeofday(&start_time, NULL);
     mixColor(num_vertices, num_edges, srcs_of_edges, dsts_of_edges, row_ptr, col, col_ptr, row, max_iters, fraction, colors);
     gettimeofday(&end_time, NULL);
+
+    std::cout << elapsed(start_time, end_time) 
+              << "\t" (isRight(num_vertices, row_ptr, col, col_ptr, row, colors) ? "right solution" : "wrong solution") << endl;
+
+/****************
     cout << "total time: " << elapsed(start_time, end_time) << "ms" << endl
          << "Solution: num_colors=" << getNumColors(num_vertices, colors) << ", "
          << (isRight(num_vertices, row_ptr, col, col_ptr, row, colors) ? "right solution" : "wrong solution") << endl << endl;
-
+*****************/
     //cout << "Running cuSPARSE coloring algorithm ...\n";
     //gettimeofday(&start_time, NULL);
     //colorBycuSPARSE(num_vertices, num_edges, row_ptr, col, col_ptr, row, colors);
@@ -201,7 +209,7 @@ int main(int argc, char ** argv)
       test(filename.c_str(), start_index, max_iters, fraction);
     }
     ************************************************/
-    std::cout << "fraction" << "\t" << "Iter Time" << "\t" << "Trav Time" << "\t" << "Total" << endl;
+    
     test(filename.c_str(), start_index, max_iters, 0.05);
     return 0;
 }
