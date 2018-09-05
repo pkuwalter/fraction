@@ -192,7 +192,7 @@ int main(int argc, char ** argv)
     int start_index = 0;
     int max_iters = 0;
     float fraction = 0;
-    if (argc < 2)
+    if (argc < 3)
     {
       cout << "Usage: " << argv[0] << " --file filename [--start_index number] [--max_iters max_ters]" << endl;
         return 0;
