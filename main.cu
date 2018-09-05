@@ -188,15 +188,17 @@ int main(int argc, char ** argv)
 
 int main(int argc, char ** argv)
 {
+
+    int start_index = 0;
+    int max_iters = 0;
+    float fraction = 0;
     if (argc < 2)
     {
       cout << "Usage: " << argv[0] << " --file filename [--start_index number] [--max_iters max_ters]" << endl;
         return 0;
     }
     string filename = "../data/web-Stanford.txt";
-    int start_index = 0;
-    int max_iters = 0;
-    float fraction = 0;
+
     for (int i = 1; i < argc; ++i)
     {
         if (strcmp(argv[i], "--file") == 0)
