@@ -196,7 +196,7 @@ int main(int argc, char ** argv)
     string filename = "../data/web-Stanford.txt";
     int start_index = 0;
     int max_iters = 0;
-    float fraction = 0;
+    float fraction = 0.8;
     for (int i = 1; i < argc; ++i)
     {
         if (strcmp(argv[i], "--file") == 0)
@@ -209,6 +209,7 @@ int main(int argc, char ** argv)
 
     std::cout << "frac" << "\t" << "Iter" << "\t" << "Trav" << "\t" << "isColored" << "\t"<< "Total" << "\t" << "isRight" << "\t"<< "Colors" << endl;
     
+    /*****************************************************
     for (fraction = 0.8; fraction <= 0.9; fraction+=0.05)
     {      
       test(filename.c_str(), start_index, max_iters, fraction);
@@ -217,6 +218,9 @@ int main(int argc, char ** argv)
     {      
       test(filename.c_str(), start_index, max_iters, fraction);
     }  
+    *******************************************************/
+
+    test(filename.c_str(), start_index, max_iters, fraction);
     
     //test(filename.c_str(), start_index, max_iters, 0.05);
     return 0;
