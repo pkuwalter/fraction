@@ -115,7 +115,7 @@ void test(const char* filename, const int start_index, const int max_iters, cons
          << (isRight(num_vertices, row_ptr, col, col_ptr, row, colors) ? "right solution" : "wrong solution") << endl << endl;
     ********************/
     // choose device & initialize cuda
-    cudaSetDevice(0);
+    cudaSetDevice(deviceNum);
 
 //    cout << "Running jpl coloring algorithm on CPU...\n";
 //    gettimeofday(&start_time, NULL);
