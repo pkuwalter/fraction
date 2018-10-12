@@ -227,7 +227,7 @@ int main(int argc, char ** argv)
     }  
     *******************************************************/
 
-    test(filename.c_str(), start_index, max_iters, fraction);
+    test(filename.c_str(), start_index, max_iters, fraction, deviceNum);
     
     //test(filename.c_str(), start_index, max_iters, 0.05);
     return 0;
