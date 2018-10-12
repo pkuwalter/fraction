@@ -218,9 +218,14 @@ int main(int argc, char ** argv)
     
     //test(filename.c_str(), start_index, max_iters, fraction, deviceNum);
 
+    /***********************************************************************
     for (fraction = 0.4; fraction <= 0.9; fraction+=0.05)
       test(filename.c_str(), start_index, max_iters, fraction, deviceNum);
-    
+    ************************************************************************/
+
+    for (int i =0; i < 10; i++)
+      test(filename.c_str(), start_index, max_iters, fraction, deviceNum);
+      
     //test(filename.c_str(), start_index, max_iters, 0.05);
     return 0;
 }
