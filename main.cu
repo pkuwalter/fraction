@@ -68,7 +68,7 @@ bool isRight(int n, int * row_ptr, int * col, int * col_ptr, int * row, int * co
 
 // test function declaration
 //void test(const char* filename, const int start_index)
-void test(const char* filename, const int start_index, const int max_iters, const float fraction)
+void test(const char* filename, const int start_index, const int max_iters, const float fraction, int deviceNum)
 {
     degree_t * degree = NULL;
     vertex_t ** adj_list = NULL;
@@ -192,9 +192,10 @@ int main(int argc, char ** argv)
     int start_index = 0;
     int max_iters = 0;
     float fraction = 0;
+    int deviceNum = 0;
     if (argc < 3)
     {
-      cout << "Usage: " << argv[0] << " --file filename [--start_index number] [--max_iters max_ters] [--frac fraction_value]" << endl;
+      cout << "Usage: " << argv[0] << " --file filename [--start_index number] [--max_iters max_ters] [--frac fraction_value] --dev deviceNum" << endl;
         return 0;
     }
     string filename = "../data/web-Stanford.txt";
@@ -208,7 +209,9 @@ int main(int argc, char ** argv)
         if (strcmp(argv[i], "--max_iters") == 0)
             max_iters = atoi(argv[i+1]);  
         if (strcmp(argv[i], "--frac") == 0)
-            fraction = atof(argv[i+1]);      
+            fraction = atof(argv[i+1]); 
+        if (strcmp(argv[i], "--dev") == 0)    \
+            deviceNum = atof(argv[i+1]); 
     }
 
     std::cout << "frac" << "\t" << "Iter" << "\t" << "Trav" << "\t" << "isColored" << "\t"<< "Total" << "\t" << "isRight" << "\t"<< "Colors" << endl;
